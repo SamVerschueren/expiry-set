@@ -1,6 +1,6 @@
 {
 	"name": "expiry-set",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "A Set implementation with expirable keys",
 	"license": "MIT",
 	"repository": "SamVerschueren/expiry-set",
