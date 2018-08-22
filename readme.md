@@ -4,6 +4,8 @@
 
 > A [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) implementation with expirable keys
 
+Memory is automatically released when an item expires by removing it from the `Set`.
+
 
 ## Install
 
@@ -62,6 +64,7 @@ Any of the [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 ## Related
 
 - [expiry-map](https://github.com/SamVerschueren/expiry-map) - A `Map` implementation with expirable items
+- [map-age-cleaner](https://github.com/SamVerschueren/map-age-cleaner) - Automatically cleanup expired items in a Map
 
 
 ## License

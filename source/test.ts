@@ -220,3 +220,39 @@ test('iterator', async t => {
 		t.fail();
 	}
 });
+
+test('auto cleanup', async t => {
+	const set = new ExpirySet<string>(1000);
+	set.add('foo');
+
+	await delay(400);
+	set.add('unicorn');
+	await delay(100);
+	set.add('rainbow');
+
+	t.true(set.has('foo'));
+	t.true(set.has('unicorn'));
+	t.true(set.has('rainbow'));
+	t.is(set.size, 3);
+
+	await delay(500);
+
+	t.false(set.has('foo'));
+	t.true(set.has('unicorn'));
+	t.true(set.has('rainbow'));
+	t.is(set.size, 2);
+
+	await delay(400);
+
+	t.false(set.has('foo'));
+	t.false(set.has('unicorn'));
+	t.true(set.has('rainbow'));
+	t.is(set.size, 1);
+
+	await delay(100);
+
+	t.false(set.has('foo'));
+	t.false(set.has('unicorn'));
+	t.false(set.has('rainbow'));
+	t.is(set.size, 0);
+});
